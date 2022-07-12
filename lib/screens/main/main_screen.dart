@@ -1,3 +1,5 @@
+import 'package:admin/screens/dashboard/dashboard_screen.dart';
+import 'package:admin/screens/main/components/slide_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -7,65 +9,18 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
             //here default flex is 1
             //and it takes the 1/6th part of the screen
-            child: Column(
-              children: [
-                DrawerHeader(
-                  child: Image.asset("assets/images/logo.png"),
-                ),
-                DrawerListTile(
-                  press: () {},
-                  title: "Dashbord",
-                  svgSrc: "assets/icons/menu_dashbord.svg",
-                ),
-                DrawerListTile(
-                  press: () {},
-                  title: "Transaction",
-                  svgSrc: "assets/icons/menu_tran.svg",
-                ),
-                DrawerListTile(
-                  press: () {},
-                  title: "Task",
-                  svgSrc: "assets/icons/menu_task.svg",
-                ),
-                DrawerListTile(
-                  press: () {},
-                  title: "Documents",
-                  svgSrc: "assets/icons/menu_doc.svg",
-                ),
-                DrawerListTile(
-                  press: () {},
-                  title: "Store",
-                  svgSrc: "assets/icons/menu_store.svg",
-                ),
-                DrawerListTile(
-                  press: () {},
-                  title: "Notification",
-                  svgSrc: "assets/icons/menu_notification.svg",
-                ),
-                DrawerListTile(
-                  press: () {},
-                  title: "Profile",
-                  svgSrc: "assets/icons/menu_profile.svg",
-                ),
-                DrawerListTile(
-                  press: () {},
-                  title: "Setting",
-                  svgSrc: "assets/icons/menu_setting.svg",
-                ),
-              ],
-            ),
+            child: SlideMenu(),
           ),
           Expanded(
             //here default flex is 5
             //and it takes the 5/6th part of the screen
             flex: 5,
-            child: Container(
-              color: Colors.blue,
-            ),
+            child: DashboardScreen(),
           ),
         ],
       )),
