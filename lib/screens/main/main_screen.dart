@@ -1,3 +1,4 @@
+import 'package:admin/responsive.dart';
 import 'package:admin/screens/dashboard/dashboard_screen.dart';
 import 'package:admin/screens/main/components/slide_menu.dart';
 import 'package:flutter/material.dart';
