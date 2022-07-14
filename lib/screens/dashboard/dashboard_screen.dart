@@ -1,4 +1,5 @@
 import 'package:admin/constants.dart';
+import 'package:admin/responsive.dart';
 import 'package:admin/screens/dashboard/componets/header.dart';
 import 'package:admin/screens/dashboard/componets/my_files.dart';
 import 'package:admin/screens/dashboard/componets/recent_files.dart';
@@ -26,19 +27,27 @@ class DashboardScreen extends StatelessWidget {
                   flex: 5,
                   child: Column(
                     children: [
-                      MyFiles(), 
+                      MyFiles(),
                       SizedBox(height: defaultPadding),
                       RecentFiles(),
+                      if (Responsive.isMobile(context))
+                        SizedBox(
+                          height: defaultPadding,
+                        ),
+                      if (Responsive.isMobile(context)) StorageDetails(),
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: defaultPadding,
-                ),
-                Expanded(
-                  flex: 2,
-                  child: StorageDetails(),
-                ),
+                if (!Responsive.isMobile(context))
+                  SizedBox(
+                    width: defaultPadding,
+                  ),
+                //on mobile means if the size is less than 850 i don't want to show it
+                if (!Responsive.isMobile(context))
+                  Expanded(
+                    flex: 2,
+                    child: StorageDetails(),
+                  ),
               ],
             ),
           ],
@@ -47,4 +56,3 @@ class DashboardScreen extends StatelessWidget {
     );
   }
 }
-
